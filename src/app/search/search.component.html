@@ -1,0 +1,57 @@
+<div class="container">
+  <div style="margin-top: 10px">
+    <mat-form-field appearance="fill">
+      <mat-label>Search Users</mat-label>
+      <input matInput [(ngModel)]="search" (change)="searchUsers()" />
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="showLoader">Loading...</div>
+
+  <div *ngIf="result.login" style="margin-top: 10px; width: 100%">
+    Username: {{ result.login }} <br><br>
+    <img src="{{ result.avatar_url }}" height="100px" width="100px" /><br><br>
+    <a href="{{ result.html_url }}" target="_blank">GIT Profile Link</a><br><br>
+    Profile Score: {{ result.score }}
+  </div>
+</div>
+<!-- {
+        "login": "sumitkumar1503",
+        "id": 43719800,
+        "node_id": "MDQ6VXNlcjQzNzE5ODAw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/43719800?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/sumitkumar1503",
+        "html_url": "https://github.com/sumitkumar1503",
+        "followers_url": "https://api.github.com/users/sumitkumar1503/followers",
+        "following_url": "https://api.github.com/users/sumitkumar1503/following{/other_user}",
+        "gists_url": "https://api.github.com/users/sumitkumar1503/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/sumitkumar1503/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/sumitkumar1503/subscriptions",
+        "organizations_url": "https://api.github.com/users/sumitkumar1503/orgs",
+        "repos_url": "https://api.github.com/users/sumitkumar1503/repos",
+        "events_url": "https://api.github.com/users/sumitkumar1503/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/sumitkumar1503/received_events",
+        "type": "User",
+        "site_admin": false,
+        "score": 1.0
+      } -->
+
+<!-- <table
+    mat-table
+    [dataSource]="results"
+    class="mat-elevation-z8"
+    *ngIf="results.length"
+  >
+    <ng-container matColumnDef="login">
+      <th mat-header-cell *matHeaderCellDef>Username</th>
+      <td mat-cell *matCellDef="let element">{{ element.login }}</td>
+    </ng-container>
+    <ng-container matColumnDef="html_url">
+      <th mat-header-cell *matHeaderCellDef>Profile Link</th>
+      <td mat-cell *matCellDef="let element"><a href="{{ element.html_url }}" target="_blank">{{ element.html_url }}</a></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table> -->
